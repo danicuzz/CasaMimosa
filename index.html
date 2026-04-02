@@ -33,6 +33,10 @@ header{
   flex-wrap:wrap;
 }
 
+header > div {
+  font-size: 1rem;
+}
+
 nav{
   display:flex;
   flex-wrap:wrap;
@@ -47,6 +51,23 @@ nav a{
 }
 
 .lang-toggle{cursor:pointer;}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  margin-left: auto;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
 
 .hero{
   height:90vh;
@@ -147,6 +168,27 @@ footer{
 /* ------------------- */
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a, .lang-toggle {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -154,24 +196,8 @@ footer{
   }
 
   header > div {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  nav a {
     font-size: 1rem;
-    padding: 8px 10px;
-  }
-
-  .lang-toggle {
-    font-size: 1rem;
-    padding: 6px 8px;
+    margin-bottom: 5px;
   }
 
   body {
@@ -212,71 +238,76 @@ footer{
 <body onload="setLang('it')">
 
 <header>
-<div><strong>Casa Mimosa +39 334 6273583</strong></div>
-<nav>
-<a href="#home" data-key="nav_home">Home</a>
-<a href="#apartment" data-key="nav_apartment">Apartment</a>
-<a href="#location" data-key="nav_location">Location</a>
-<a href="#prices" data-key="nav_prices">Prices</a>
-<a href="#about" data-key="nav_about">About</a>
-<a href="#contact" data-key="nav_contact">Contact</a>
-<span class="lang-toggle" onclick="setLang('it')">IT</span>
-<span class="lang-toggle" onclick="setLang('en')">EN</span>
-<span class="lang-toggle" onclick="setLang('de')">DE</span>
-</nav>
+  <div><strong>Casa Mimosa +39 334 6273583</strong></div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="mainNav">
+    <a href="#home" data-key="nav_home">Home</a>
+    <a href="#apartment" data-key="nav_apartment">Apartment</a>
+    <a href="#location" data-key="nav_location">Location</a>
+    <a href="#prices" data-key="nav_prices">Prices</a>
+    <a href="#about" data-key="nav_about">About</a>
+    <a href="#contact" data-key="nav_contact">Contact</a>
+    <span class="lang-toggle" onclick="setLang('it')">IT</span>
+    <span class="lang-toggle" onclick="setLang('en')">EN</span>
+    <span class="lang-toggle" onclick="setLang('de')">DE</span>
+  </nav>
 </header>
 
 <div id="home" class="hero">
-<h1 data-key="title"></h1>
+  <h1 data-key="title"></h1>
 </div>
 
 <section id="apartment">
-<h2 data-key="apartment"></h2>
-<p class="apartment-desc" data-key="apartment_desc"></p>
+  <h2 data-key="apartment"></h2>
+  <p class="apartment-desc" data-key="apartment_desc"></p>
 
-<div class="gallery">
-<img src="images/background.jpg">
-<img src="images/camera1.jpg">
-<img src="images/camera2.jpg">
-<img src="images/cucina1.jpg">
-<img src="images/salotto2.jpg">
-<img src="images/giardino1.jpg">
-<img src="images/cucinino.jpg">
-<img src="images/dettaglio.jpg">
-<img src="images/panoramicamaps.jpg">
-<img src="images/spiaggia.jpg">
-<img src="images/planimetria.jpg">
-</div>
+  <div class="gallery">
+    <img src="images/background.jpg">
+    <img src="images/camera1.jpg">
+    <img src="images/camera2.jpg">
+    <img src="images/cucina1.jpg">
+    <img src="images/salotto2.jpg">
+    <img src="images/giardino1.jpg">
+    <img src="images/cucinino.jpg">
+    <img src="images/dettaglio.jpg">
+    <img src="images/panoramicamaps.jpg">
+    <img src="images/spiaggia.jpg">
+    <img src="images/planimetria.jpg">
+  </div>
 </section>
 
 <section id="location">
-<h2 data-key="location"></h2>
-<iframe src="https://www.google.com/maps?q=Via%20Intercomunale%2078A%20Terme%20Vigliatore&output=embed"></iframe>
+  <h2 data-key="location"></h2>
+  <iframe src="https://www.google.com/maps?q=Via%20Intercomunale%2078A%20Terme%20Vigliatore&output=embed"></iframe>
 </section>
 
 <section id="prices">
-<h2 data-key="prices"></h2>
-<p class="pricing" data-key="prices_text"></p>
+  <h2 data-key="prices"></h2>
+  <p class="pricing" data-key="prices_text"></p>
 </section>
 
 <section id="about">
-<h2 data-key="about"></h2>
-<div class="about">
-<img src="images/famiglia.jpg">
-<p data-key="about_text"></p>
-</div>
+  <h2 data-key="about"></h2>
+  <div class="about">
+    <img src="images/famiglia.jpg">
+    <p data-key="about_text"></p>
+  </div>
 </section>
 
 <section id="contact">
-<h2 data-key="contact"></h2>
-<p class="contact-text" data-key="contact_text"></p>
+  <h2 data-key="contact"></h2>
+  <p class="contact-text" data-key="contact_text"></p>
 </section>
 
-<footer>Casa Mimosa – Tonnarella</footer>
+<footer>Casa Mimosa – Tonnarella (ME) – v. 1.1 </footer>
 
 <div id="lightbox">
-<span id="lightbox-close">&times;</span>
-<img id="lightbox-img">
+  <span id="lightbox-close">&times;</span>
+  <img id="lightbox-img">
 </div>
 
 <script>
@@ -293,6 +324,11 @@ function setLang(lang){
       el.innerHTML=translations[lang][key];
     }
   });
+}
+
+/* Hamburger toggle */
+function toggleMenu() {
+  document.getElementById("mainNav").classList.toggle("active");
 }
 
 /* LIGHTBOX */
