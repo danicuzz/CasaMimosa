@@ -143,6 +143,69 @@ footer{
   font-size:2rem;
   cursor:pointer;
 }
+
+/* ------------------- */
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  header > div {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+
+  .lang-toggle {
+    font-size: 1rem;
+    padding: 6px 8px;
+  }
+
+  body {
+    font-size: 16px;
+    padding-top: 120px; /* adjust for taller header */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 50px 15px;
+  }
+
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .gallery img {
+    height: 180px;
+  }
+}
 </style>
 </head>
 
@@ -169,8 +232,7 @@ footer{
 
 <section id="apartment">
 <h2 data-key="apartment"></h2>
-<p class="apartment-desc" data-key="apartment_desc">
-</p>
+<p class="apartment-desc" data-key="apartment_desc"></p>
 
 <div class="gallery">
 <img src="images/background.jpg">
@@ -219,86 +281,32 @@ footer{
 
 <script>
 const translations = {
-
-it:{
-title:"Benvenuti a Casa Mimosa",
-apartment:"Il nostro appartamento",
-apartment_desc:"L'appartamento occupa l'intero piano terra di una palazzina su tre livelli, con accesso diretto al giardino. La spiaggia di Tonnarella è a 50 metri. Bar, ristoranti e negozietti sono tutti raggiungibili a piedi, la maggior parte aperti solo d'estate. Dispone di due camere da letto con armadio, un open space cucina/soggiorno con cucina attrezzata, frigorifero, forno, tavolo da pranzo e divano, e un bagno completo di doccia, lavatrice e bidet. Il giardino è attrezzato con una cucina esterna, tavolo da pranzo, poltrone, dondolo e una doccia. Aria condizionata caldo/freddo in soggiorno.",
-about:"Chi siamo",
-about_text:"Siamo Angelo, Maria, Valeria e Daniele.<br><br>Da oltre vent'anni la nostra famiglia accoglie ospiti a Tonnarella. Il nostro piacere sta nel vedere chi arriva respirare, rilassarsi, guardarsi intorno. È il nostro posto del cuore, un luogo che ha il suo carattere, e ci fa piacere farlo scoprire a chi passa da queste parti.",
-prices:"Prezzi",
-prices_text:"<strong>Fasce di prezzo indicative:</strong><br><br>Bassa stagione (maggio, giugno, settembre, ottobre): circa 60€ a notte, 300€ a settimana;<br>Alta stagione (luglio, agosto): generalmente disponibile solo per mesi interi, 1900–2200€ al mese.<br><br>Il prezzo viene concordato caso per caso, e per soggiorni più lunghi potrebbe essere richiesto un deposito.",
-contact:"Contattaci",
-contact_text:"Per informazioni su disponibilità e prezzi contattare il numero <strong>+39 334 6273583</strong> (telefono o WhatsApp, solo italiano).<br><br>Per informazioni in inglese, tedesco, francese, spagnolo o altre lingue, contattare <strong>+39 328 9142546</strong> (solo WhatsApp).",
-location:"Dove siamo",
-nav_home:"Home",
-nav_apartment:"Appartamento",
-nav_prices:"Prezzi",
-nav_about:"Chi siamo",
-nav_location:"Dove siamo",
-nav_contact:"Contattaci"
-},
-
-en:{
-title:"Welcome to Casa Mimosa",
-apartment:"Our Apartment",
-apartment_desc:"The apartment occupies the entire ground floor of a three-storey townhouse, with direct garden access. The beach is 50 metres away. Bars, restaurants and small shops are all within walking distance, most open only in summer. There are two bedrooms with wardrobes, an open kitchen and living area with stove, fridge, oven and sofa, and a full bathroom with shower, washing machine and bidet. The garden has an outdoor kitchenette, a dining table, sunbeds, a porch swing and a shower. Hot and cold air conditioning in the living room.",
-about:"About Us",
-about_text:"We are Angelo, Maria, Valeria and Daniele.<br><br>Our family has proudly welcomed guests in Tonnarella for over 20 years. Hospitality is our passion, and we love sharing the beauty of our seaside village. We look forward to making you feel at home.",
-prices:"Prices",
-prices_text:"<strong>Indicative Price Ranges:</strong><br><br>Shoulder season (May, June, September, October): around €60 per night, €300 per week;<br>Peak season (July, August): usually only full months available, €1900–2200 per month.<br><br>Prices are agreed individually on a case-by-case basis, and a deposit may be required for longer stays.",
-contact:"Contact Us",
-contact_text:"For information about availability and prices contact <strong>+39 334 6273583</strong> (phone or WhatsApp, Italian only).<br><br>For information in English, German, French, Spanish or other languages, contact <strong>+39 328 9142546</strong> (WhatsApp only).",
-location:"Location",
-nav_home:"Home",
-nav_apartment:"Apartment",
-nav_prices:"Prices",
-nav_about:"About Us",
-nav_location:"Location",
-nav_contact:"Contact"
-},
-
-de:{
-title:"Willkommen bei Casa Mimosa",
-apartment:"Unsere Wohnung",
-apartment_desc:"Die Wohnung erstreckt sich über das gesamte Erdgeschoss eines dreistöckigen Reihenhauses mit direktem Gartenzugang. Der Strand ist 50 Meter entfernt. Bars, Restaurants und kleine Geschäfte sind alle fußläufig erreichbar, die meisten nur im Sommer geöffnet. Die Wohnung verfügt über zwei Schlafzimmer mit Kleiderschrank, einen offenen Wohn- und Küchenbereich mit Herd, Kühlschrank, Backofen und Schlafsofa sowie ein Badezimmer mit Dusche, Waschmaschine und Bidet. Der Garten ist mit Esstisch, Sesseln, Hollywoodschaukel und Außenküche mit Spüle und Dusche ausgestattet. Klimaanlage mit Heiz- und Kühlfunktion im Wohnzimmer.",
-about:"Über uns",
-about_text:"Wir sind Angelo, Maria, Valeria und Daniele.<br><br>Unsere Familie heißt seit über 20 Jahren stolz Gäste in Tonnarella willkommen. Gastfreundschaft ist unsere Leidenschaft, und wir lieben es, die Schönheit unseres Küstenortes zu teilen. Wir freuen uns darauf, Sie wie zu Hause fühlen zu lassen.",
-prices:"Preise",
-prices_text:"<strong>Richtwerte für Preise:</strong><br><br>Nebensaison (Mai, Juni, September, Oktober): etwa 60€ pro Nacht, 300€ pro Woche;<br>Hochsaison (Juli, August): in der Regel nur ganze Monate verfügbar, 1900–2200€ pro Monat.<br><br>Der Preis wird individuell vereinbart, und für längere Aufenthalte kann eine Anzahlung erforderlich sein.",
-contact:"Kontakt",
-contact_text:"Für Informationen zu Verfügbarkeit und Preisen kontaktieren Sie <strong>+39 334 6273583</strong> (Telefon oder WhatsApp, nur Italienisch).<br><br>Für Informationen auf Englisch, Deutsch, Französisch, Spanisch oder anderen Sprachen kontaktieren Sie bitte <strong>+39 328 9142546</strong> (nur über WhatsApp).",
-location:"Lage",
-nav_home:"Start",
-nav_apartment:"Wohnung",
-nav_prices:"Preise",
-nav_about:"Über uns",
-nav_location:"Lage",
-nav_contact:"Kontakt"
-}
+it:{title:"Benvenuti a Casa Mimosa", apartment:"Il nostro appartamento", apartment_desc:"L'appartamento occupa l'intero piano terra di una palazzina su tre livelli, con accesso diretto al giardino. La spiaggia di Tonnarella è a 50 metri. Bar, ristoranti e negozietti sono tutti raggiungibili a piedi, la maggior parte aperti solo d'estate. Dispone di due camere da letto con armadio, un open space cucina/soggiorno con cucina attrezzata, frigorifero, forno, tavolo da pranzo e divano, e un bagno completo di doccia, lavatrice e bidet. Il giardino è attrezzato con una cucina esterna, tavolo da pranzo, poltrone, dondolo e una doccia. Aria condizionata caldo/freddo in soggiorno.", about:"Chi siamo", about_text:"Siamo Angelo, Maria, Valeria e Daniele.<br><br>Da oltre vent'anni la nostra famiglia accoglie ospiti a Tonnarella. Il nostro piacere sta nel vedere chi arriva respirare, rilassarsi, guardarsi intorno. È il nostro posto del cuore, un luogo che ha il suo carattere, e ci fa piacere farlo scoprire a chi passa da queste parti.", prices:"Prezzi", prices_text:"<strong>Fasce di prezzo indicative:</strong><br><br>Bassa stagione (maggio, giugno, settembre, ottobre): circa 60€ a notte, 300€ a settimana;<br>Alta stagione (luglio, agosto): generalmente disponibile solo per mesi interi, 1900–2200€ al mese.<br><br>Il prezzo viene concordato caso per caso, e per soggiorni più lunghi potrebbe essere richiesto un deposito.", contact:"Contattaci", contact_text:"Per informazioni su disponibilità e prezzi contattare il numero <strong>+39 334 6273583</strong> (telefono o WhatsApp, solo italiano).<br><br>Per informazioni in inglese, tedesco, francese, spagnolo o altre lingue, contattare <strong>+39 328 9142546</strong> (solo WhatsApp).", location:"Dove siamo", nav_home:"Home", nav_apartment:"Appartamento", nav_prices:"Prezzi", nav_about:"Chi siamo", nav_location:"Dove siamo", nav_contact:"Contattaci"},
+en:{title:"Welcome to Casa Mimosa", apartment:"Our Apartment", apartment_desc:"The apartment occupies the entire ground floor of a three-storey townhouse, with direct garden access. The beach is 50 metres away. Bars, restaurants and small shops are all within walking distance, most open only in summer. There are two bedrooms with wardrobes, an open kitchen and living area with stove, fridge, oven and sofa, and a full bathroom with shower, washing machine and bidet. The garden has an outdoor kitchenette, a dining table, sunbeds, a porch swing and a shower. Hot and cold air conditioning in the living room.", about:"About Us", about_text:"We are Angelo, Maria, Valeria and Daniele.<br><br>Our family has proudly welcomed guests in Tonnarella for over 20 years. Hospitality is our passion, and we love sharing the beauty of our seaside village. We look forward to making you feel at home.", prices:"Prices", prices_text:"<strong>Indicative Price Ranges:</strong><br><br>Shoulder season (May, June, September, October): around €60 per night, €300 per week;<br>Peak season (July, August): usually only full months available, €1900–2200 per month.<br><br>Prices are agreed individually on a case-by-case basis, and a deposit may be required for longer stays.", contact:"Contact Us", contact_text:"For information about availability and prices contact <strong>+39 334 6273583</strong> (phone or WhatsApp, Italian only).<br><br>For information in English, German, French, Spanish or other languages, contact <strong>+39 328 9142546</strong> (WhatsApp only).", location:"Location", nav_home:"Home", nav_apartment:"Apartment", nav_prices:"Prices", nav_about:"About Us", nav_location:"Location", nav_contact:"Contact"},
+de:{title:"Willkommen bei Casa Mimosa", apartment:"Unsere Wohnung", apartment_desc:"Die Wohnung erstreckt sich über das gesamte Erdgeschoss eines dreistöckigen Reihenhauses mit direktem Gartenzugang. Der Strand ist 50 Meter entfernt. Bars, Restaurants und kleine Geschäfte sind alle fußläufig erreichbar, die meisten nur im Sommer geöffnet. Die Wohnung verfügt über zwei Schlafzimmer mit Kleiderschrank, einen offenen Wohn- und Küchenbereich mit Herd, Kühlschrank, Backofen und Schlafsofa sowie ein Badezimmer mit Dusche, Waschmaschine und Bidet. Der Garten ist mit Esstisch, Sesseln, Hollywoodschaukel und Außenküche mit Spüle und Dusche ausgestattet. Klimaanlage mit Heiz- und Kühlfunktion im Wohnzimmer.", about:"Über uns", about_text:"Wir sind Angelo, Maria, Valeria und Daniele.<br><br>Unsere Familie heißt seit über 20 Jahren stolz Gäste in Tonnarella willkommen. Gastfreundschaft ist unsere Leidenschaft, und wir lieben es, die Schönheit unseres Küstenortes zu teilen. Wir freuen uns darauf, Sie wie zu Hause fühlen zu lassen.", prices:"Preise", prices_text:"<strong>Richtwerte für Preise:</strong><br><br>Nebensaison (Mai, Juni, September, Oktober): etwa 60€ pro Nacht, 300€ pro Woche;<br>Hochsaison (Juli, August): in der Regel nur ganze Monate verfügbar, 1900–2200€ pro Monat.<br><br>Der Preis wird individuell vereinbart, und für längere Aufenthalte kann eine Anzahlung erforderlich sein.", contact:"Kontakt", contact_text:"Für Informationen zu Verfügbarkeit und Preisen kontaktieren Sie <strong>+39 334 6273583</strong> (Telefon oder WhatsApp, nur Italienisch).<br><br>Für Informationen auf Englisch, Deutsch, Französisch, Spanisch oder anderen Sprachen kontaktieren Sie bitte <strong>+39 328 9142546</strong> (nur über WhatsApp).", location:"Lage", nav_home:"Start", nav_apartment:"Wohnung", nav_prices:"Preise", nav_about:"Über uns", nav_location:"Lage", nav_contact:"Kontakt"}
 };
 
 function setLang(lang){
-document.querySelectorAll("[data-key]").forEach(el=>{
-const key=el.getAttribute("data-key");
-if(translations[lang][key]){
-el.innerHTML=translations[lang][key];
-}
-});
+  document.querySelectorAll("[data-key]").forEach(el=>{
+    const key=el.getAttribute("data-key");
+    if(translations[lang][key]){
+      el.innerHTML=translations[lang][key];
+    }
+  });
 }
 
 /* LIGHTBOX */
 document.querySelectorAll(".gallery img, .about img").forEach(img=>{
-img.onclick=()=>{
-document.getElementById("lightbox-img").src=img.src;
-document.getElementById("lightbox").style.display="flex";
-};
+  img.onclick=()=>{
+    document.getElementById("lightbox-img").src=img.src;
+    document.getElementById("lightbox").style.display="flex";
+  };
 });
 
 document.getElementById("lightbox").onclick=e=>{
-if(e.target.id==="lightbox"||e.target.id==="lightbox-close"){
-document.getElementById("lightbox").style.display="none";
-}
+  if(e.target.id==="lightbox"||e.target.id==="lightbox-close"){
+    document.getElementById("lightbox").style.display="none";
+  }
 };
 </script>
 
